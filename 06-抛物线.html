@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box{width: 20px;height: 20px;background: red;position: absolute;}
+		</style>
+	</head>
+	<body>
+		
+		
+		<div id="box">
+			
+		</div>
+		
+		<script type="text/javascript">
+// 水平方向 匀速  
+// 垂直 匀加速       
+// 抛物线
+			let box = document.querySelector('#box')
+			let speedX = 35;
+			let speedY = 0;
+			let dri = 'left'
+			let dri2 = 'top'
+			
+			let x = 0;
+			let y = 1
+			//y = 。x*x +1
+			box.timer = setInterval(()=>{
+				console.log(x,y)
+				box.style[dri] = x + 'px'
+				
+				box.style[dri2] = y+'px'
+				
+				x = x + 5;
+				y = 0.002*x*x + 1
+				
+				
+				
+				
+				
+				
+			},80)
+			
+			
+		</script>
+		
+	</body>
+</html>

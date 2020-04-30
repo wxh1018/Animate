@@ -1,0 +1,52 @@
+<!DOCTYPE>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>无标题文档</title>
+		<style type="text/css">
+			#div1 {
+				width: 150px;
+				height: 100px;
+				position: absolute;
+				top: 40%;
+				left: -150px;
+				background: #9CF;
+			}
+			
+			#div1 span {
+				width: 20px;
+				position: absolute;
+				top: 15px;
+				left: 150px;
+				background: #9C9;
+			}
+		</style>
+		<script type="text/javascript" src="common.js" ></script>
+		<script type="text/javascript" src="animate.js" ></script>
+		<!--<script src="animate.js"></script>-->
+
+		<script type="text/javascript">
+			window.onload = function() {
+				var oDiv = document.getElementById("div1");
+				var oSpan = oDiv.children[0];
+				oDiv.onmouseenter = function(){
+					animate(this, {left:0});
+					console.log("鼠标划入了！");
+				}
+				oDiv.onmouseleave = function(){
+					animate(this, {left:-150});
+					console.log("鼠标离开了！");
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="div1">
+			<span>分享到</span>
+		</div>
+
+	</body>
+
+</html>

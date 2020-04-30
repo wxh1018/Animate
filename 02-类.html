@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let obj = {};
+			
+			// function Array(){
+			// 	this.length;
+			// 	this.sort = function(){
+			// 		
+			// 	}
+			// }
+			function Dog(name){
+				console.log(this)
+				this.name = name;
+				this.wang = function(){
+					console.log(this.name)
+				}
+			}
+			let d1 = new Dog('小黑')
+			console.log(d1)
+			d1.wang()
+			
+			//类
+			class Cat{
+				
+				//constructor 构造函数
+				constructor(name) {
+				    console.log(name)
+					console.log(this)
+					this.name = name;
+					// this.wang = function(){}
+				}
+				//方法
+				miao(){
+					console.log(this.name+'喵喵')
+				}
+				
+			}
+			let c1 = new Cat('小白')//new 类名的时候,会自动调用构造函数
+			console.log(c1)
+			c1.miao()
+			
+			let obj2 = {}//new Object()
+			let arr = []//new Array()
+			
+			
+			console.log(c1.hasOwnProperty('name'))//true
+			console.log(c1.hasOwnProperty('miao'))//false
+			
+			//instanceof (实例，对象)
+			//判断对象是否是某个类的实例
+			console.log(c1 instanceof Cat)
+			console.log(arr instanceof Array)
+			
+			
+			
+			// 封装（封装类）   继承     多态
+			
+			
+			//基类 父类
+			// 共同的特点  属性和方法
+			class Animal{
+				constructor(name,age,sex) {
+					console.log('父类的构造函数执行')
+				    this.name = name;
+					this.age = age;
+					this.sex = sex
+				}
+				
+				run(){
+					console.log(this.name,'叫')
+				}
+				
+			}
+			//继承-父类,就拥有了父类的所有的属性和方法
+			
+			//子类
+			class Pig extends Animal{
+				constructor(name,age,sex){
+					console.log('子类的构造函数执行')
+					//Must call super constructor in derived class before accessing 'this'
+					console.log(name,age,sex)
+					super(name,age,sex)
+					this.weight = 20;
+					
+				}
+				//重写
+				run(){
+					super.run()//父类的 run 方法
+				}
+				eat(){
+					
+				}
+				
+			}
+			let p1 = new Pig('佩奇',2,'女')
+			console.log(p1)
+			p1.run()
+			
+			
+			// 定义一个父类 Person   ,  子类  黄种人 白种人
+			
+			// 定义类  选项卡类   属性 - 方法
+			  class Tab{
+				  
+			  }
+			
+			
+		</script>
+	</body>
+</html>

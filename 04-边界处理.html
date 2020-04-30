@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box{width: 100px;height: 100px;background: red;position: absolute;}
+		</style>
+	</head>
+	<body>
+		
+		
+		<div id="box">
+			
+		</div>
+		
+		<script type="text/javascript">
+			let box = document.querySelector('#box')
+			let speedX = 15;
+			let speedY = 15;
+			let dri = 'left'
+			let dri2 = 'top'
+			box.timer = setInterval(()=>{
+				box.isRunning = true;
+				// box.style.left = box.offsetLeft + 5 +'px'
+				box.style[dri] = parseFloat(getComputedStyle(box)[dri])+ speedX+'px'
+				box.style[dri2] = parseFloat(getComputedStyle(box)[dri2])+ speedY+'px'
+				
+				// console.log(getComputedStyle(box).width)
+				// console.log(getComputedStyle(box).left)
+				
+				
+				if(parseFloat(getComputedStyle(box)['left']) >= document.documentElement.clientWidth-box.offsetWidth){
+					//clearInterval(box.timer)
+					speedX*=-1
+				}
+				if(parseFloat(getComputedStyle(box)['left']) <=0){
+					//clearInterval(box.timer)
+					speedX*=-1
+				}
+				
+				if(parseFloat(getComputedStyle(box)['top']) >= document.documentElement.clientHeight-box.offsetWidth){
+					//clearInterval(box.timer)
+					speedY*=-1
+				}
+				if(parseFloat(getComputedStyle(box)['top']) <=0){
+					//clearInterval(box.timer)
+					speedY*=-1
+				}
+				// if(box.offsetLeft >= document.documentElement.clientWidth-box.offsetWidth){
+				// 	clearInterval(box.timer)
+				// }
+				
+			},80)
+			
+			
+			document.onclick = function(){
+				if(box.isRunning==true){
+					clearInterval(box.timer)
+					box.isRunning = false;
+				}else{
+					box.timer = setInterval(()=>{
+						box.isRunning = true;
+						box.style.left = box.offsetLeft + 5 +'px'
+					},80)
+				}
+				
+				console.log(box.timer)
+				
+			}
+			
+			
+			//边界属性  浏览器视口宽高
+			//返回当前视口的高度（即浏览器窗口的高度）
+			console.log(document.documentElement)
+			console.log(document.documentElement.clientHeight)
+			
+			console.log(document.documentElement.clientWidth)
+			
+			
+			// 网页总高度     body默认有margin，记得重置
+			console.log(document.body.clientHeight)
+			
+			console.log(document.body.clientWidth)
+		</script>
+		
+	</body>
+</html>

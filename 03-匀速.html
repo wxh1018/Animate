@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box{width: 100px;height: 100px;background: red;position: absolute;}
+		</style>
+	</head>
+	<body>
+		
+		
+		<div id="box">
+			
+		</div>
+		
+		<script type="text/javascript">
+			let box = document.querySelector('#box')
+			box.timer = setInterval(()=>{
+				box.isRunning = true;
+				box.style.left = box.offsetLeft + 5 +'px'
+			},80)
+			
+			document.onclick = function(){
+				if(box.isRunning){
+					clearInterval(box.timer)
+					box.isRunning = false;
+				}else{
+					box.timer = setInterval(()=>{
+						box.isRunning = true;
+						box.style.left = box.offsetLeft + 5 +'px'
+					},80)
+				}
+				
+				console.log(box.timer)
+				
+			}
+		</script>
+		
+	</body>
+</html>
